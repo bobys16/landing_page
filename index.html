@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <img src="assets/img/logo.png" alt="Logo" class="logo">
+    </header>
+
+    <main>
+        <article class="container app-section">
+            <aside>
+               <img src="assets/img/app.png" alt="App Image">
+            </aside>
+            <div class="app-info">
+                <h2>Palworld Breeding Calculator</h2>
+                <p>Jelajahi Kombinasi Pal's!<br> Sekarang Hadir dalam genggaman!</p>
+                <button onclick="javascript:window.open('https://play.google.com/store/apps/details?id=com.breedcalc.pals', '_blank')"><i class="fab  fa-google-play"></i> Download Now</button>
+                <button onclick="smooth('#features')"><i class="fab fa-searchengin"></i> Features</button>
+            </div>
+        </article>
+
+        <article class="container about-section" id="features">
+            <div class="about-info">
+                <h2><center>About the App</center></h2>
+                <p>Palworld Breeding Calculator adalah aplikasi kalkulator untuk mendapatkan Pal yang kalian mau dapatkan di Gim Palworld, 18000++ combinasi ada di dalam aplikasi ini. dan ini adalah aplikasi android pertama untuk palworld breeding calculator. Download Sekarang!</p>
+            </div>
+        </article>
+
+        <div class="container features-slider" >
+            <div class="feature-card">
+                <h3>Cepat</h3>
+                <p>Searching Hasil Palworld dengan Mudah dan Cepat!</p>
+            </div>
+            <div class="feature-card">
+                <h3>Mudah</h3>
+                <p>Install Aplikasi dari playstore dan Pakai tanpa akun!</p>
+            </div>
+            <div class="feature-card">
+                <h3>24/7 Update & Search</h3>
+                <p>Server Database yang 24/7 update dan Cepat!</p>
+            </div>
+            <div class="feature-card">
+                <h3>Support</h3>
+                <p>Install dan Kasih bintang 5,  untuk support saya hehe.</p>
+            </div>
+        </div>
+
+        <article class="container developers-section">
+            <div class="developer-info">
+                <center><h2>About the Developer</h2>
+                <img src="assets/img/boby.jpg" alt="Developer Image"></center><br>
+                <center><i>Bondan Charisnanda Mac HP /  Bondan's Studio</i></center>
+                <center><p>Newbie Web Developer yang ingin belajar inovasi terbaru, sudah itu saja. Terimakasih</p></center>
+            </div>
+        </article>
+
+    <article class="container contact-section">
+           <div class="social-media full-width">
+                <a href="https://facebook.com/bobys16" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/bobys16" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/bondan-charisnanda-mac-hp-20a455209/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        <br>
+        <div class="contact-form full-width">
+            <h2>Reach Me</h2>
+            <form method="post" id="contactformnya">
+                <input type="text" name="nama"  placeholder="Name"  required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="msg" placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </article><br><br><br>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Made with <i class="fa fa-heart"></i> by Bondan</p>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $("#contactformnya").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var actionUrl = form.attr('action');
+    
+    $.ajax({
+        type: "POST",
+        url: "https://solvine.online/API/contact_test",
+        data: form.serialize(), // serializes the form's elements.
+        success: function(data)
+        {
+          Swal.fire({
+              title: "API HIT!",
+              text: data,
+              icon: "success"
+            });
+        }
+    });
+    
+});
+function smooth(target) {
+    var element = document.querySelector(target);
+    window.scroll({
+        behavior: 'smooth',
+        left: 0,
+        top: element.offsetTop
+    });
+}
+</script>
+</html>
